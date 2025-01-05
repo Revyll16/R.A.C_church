@@ -1,0 +1,15 @@
+<h1>Members#index</h1>
+<p>Find me in app/views/members/index.html.erb</p>
+
+<h1>Members</h1>
+<%= link_to 'Add Member', new_member_path %>
+
+<ul>
+  <% @members.each do |member| %>
+    <li>
+      <%= link_to member.name, member_path(member) %> - <%= member.role %>
+      <%= link_to 'Edit', edit_member_path(member) %> |
+      <%= link_to 'Delete', member_path(member), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>

@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  root "pages#home"
+
+  get "/about_us", to: "pages#about_us"
+  get "/contact_us", to: "pages#contact_us"
+
+  resources :members
+  resources :sermons, only: [:index, :show]
+  resources :events, only: [:index, :show]
+  resources :ministries, only: [:index, :show]
+  resources :prayer_requests, only: [:new, :create]
+  resources :donations, only: [:index, :new, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

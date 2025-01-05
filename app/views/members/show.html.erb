@@ -1,0 +1,10 @@
+<h1>Members#show</h1>
+<p>Find me in app/views/members/show.html.erb</p>
+
+<h1><%= @member.name %></h1>
+<p>Role: <%= @member.role %></p>
+<p>Email: <%= @member.email %></p>
+<p>Phone: <%= @member.phone %></p>
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>

@@ -1,0 +1,2 @@
+class PrayerRequest < ApplicationRecord
+end

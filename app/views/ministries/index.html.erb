@@ -1,0 +1,28 @@
+<h1>Ministries</h1>
+
+<%= link_to 'New Ministry', ministries_path, class: 'btn btn-primary' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Created At</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ministries.each do |ministry| %>
+      <tr>
+        <td><%= ministry.name %></td>
+        <td><%= ministry.description.truncate(100) %></td>
+        <td><%= ministry.created_at.strftime('%B %d, %Y') %></td>
+        <td>
+          <%= link_to 'Show', ministry_path(ministry), class: 'btn btn-info' %>
+          <%= link_to 'Edit', ministry_path(ministry), class: 'btn btn-warning' %>
+          <%= link_to 'Delete', ministry_path(ministry), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
