@@ -14,11 +14,14 @@ class MinistriesController < ApplicationController
   def create
     @ministry = Ministry.new(ministry_params)
     if @ministry.save
+      Rails.logger.info("Ministry created successfully")
       redirect_to @ministry, notice: 'Ministry was successfully created.'
     else
+      Rails.logger.error("Failed to create ministry: #{@ministry.errors.full_messages}")
       render :new
     end
   end
+
 
   def edit
     @ministry = Ministry.find(params[:id])
@@ -34,10 +37,17 @@ class MinistriesController < ApplicationController
   end
 
   def destroy
-    @ministry = Ministry.find(params[:id])
-    @ministry.destroy
-    redirect_to ministries_path, notice: 'Ministry was successfully deleted.'
+    @ministry = Ministry.find_by(id: params[:id])
+    if @ministry
+      @ministry.destroy
+      Rails.logger.info("Ministry deleted successfully")
+      redirect_to ministries_path, notice: 'Ministry was successfully deleted.'
+    else
+      Rails.logger.error("Ministry not found with id #{params[:id]}")
+      redirect_to ministries_path, alert: 'Ministry not found.'
+    end
   end
+
 
   private
 

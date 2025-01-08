@@ -2,24 +2,22 @@
 <html>
   <head>
     <title>R.A.C_church</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Rails-specific meta tags -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <!-- Rails stylesheet -->
+    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <% if notice %>
-      <div class="alert alert-success">
-        <%= notice %>
-      </div>
-    <% end %>
-    <% if alert %>
-      <div class="alert alert-danger">
-        <%= alert %>
-      </div>
-    <% end %>
-    
-    <%= yield %>
+    <div class="container-fluid">
+      <%= render 'layouts/navbar' %>
+      <%= render 'layouts/alert' %>
+      <%= yield %>
+    </div>
   </body>
 </html>

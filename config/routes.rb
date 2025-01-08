@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get "/contact_us", to: "pages#contact_us"
 
   resources :members
-  resources :sermons, only: [:index, :show]
-  resources :events, only: [:index, :show]
-  resources :ministries, only: [:index, :show]
+  resources :ministries
+  resources :sermons
+  resources :events
   resources :prayer_requests, only: [:new, :create]
   resources :donations, only: [:index, :new, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -40,7 +40,9 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 gem 'bootstrap', '~> 5.3.3'
 gem 'sassc-rails'
-
+gem 'importmap-rails'
+gem "font-awesome-sass", "~> 6.1"
+gem "simple_form"
 
 
 group :development, :test do

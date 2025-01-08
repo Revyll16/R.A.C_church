@@ -1,6 +1,6 @@
 <h1>Ministries</h1>
 
-<%= link_to 'New Ministry', ministries_path, class: 'btn btn-primary' %>
+<%= link_to 'New Ministry', new_ministry_path, class: 'btn btn-primary' %>
 
 <table class="table">
   <thead>
@@ -19,7 +19,7 @@
         <td><%= ministry.created_at.strftime('%B %d, %Y') %></td>
         <td>
           <%= link_to 'Show', ministry_path(ministry), class: 'btn btn-info' %>
-          <%= link_to 'Edit', ministry_path(ministry), class: 'btn btn-warning' %>
+          <%= link_to 'Edit', edit_ministry_path(ministry), class: 'btn btn-warning' %>
           <%= link_to 'Delete', ministry_path(ministry), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>

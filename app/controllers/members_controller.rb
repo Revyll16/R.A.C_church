@@ -36,12 +36,15 @@ class MembersController < ApplicationController
   def destroy
     @member = Member.find_by(id: params[:id])
     if @member
+      Rails.logger.debug("Deleting member: #{@member.inspect}")
       @member.destroy
       redirect_to members_path, notice: 'Member was successfully removed.'
     else
+      Rails.logger.debug("Member not found with ID: #{params[:id]}")
       redirect_to members_path, alert: 'Member not found.'
     end
   end
+
 
 
   private

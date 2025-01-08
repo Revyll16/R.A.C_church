@@ -1,0 +1,35 @@
+<h1>Edit Ministry</h1>
+
+<%= form_with(model: @ministry, local: true) do |form| %>
+  <% if @ministry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ministry.errors.count, "error") %> prohibited this ministry from being saved:</h2>
+      <ul>
+        <% @ministry.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :ministry_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :ministry_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :leader_name %>
+    <%= form.text_field :leader_name, id: :ministry_leader_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Update Ministry" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', ministries_path %>
