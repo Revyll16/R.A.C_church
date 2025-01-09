@@ -8,6 +8,7 @@
       <th>Amount</th>
       <th>Frequency</th>
       <th>Donation Date</th>
+      <th>Message</th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +16,8 @@
       <tr>
         <td><%= number_to_currency(donation.amount) %></td>
         <td><%= donation.frequency %></td>
+        <td><%= donation.created_at %></td>
+        <td><%= donation.message %></td>
       </tr>
     <% end %>
   </tbody>

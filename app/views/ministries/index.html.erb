@@ -7,6 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Responsable</th>
       <th>Created At</th>
       <th>Actions</th>
     </tr>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= ministry.name %></td>
         <td><%= ministry.description.truncate(100) %></td>
+        <td><%= ministry.leader_name %></td>
         <td><%= ministry.created_at.strftime('%B %d, %Y') %></td>
         <td>
           <%= link_to 'Show', ministry_path(ministry), class: 'btn btn-info' %>
