@@ -1,4 +1,47 @@
 .nav-item.active .nav-link {
   font-weight: bold;
   color: #007bff;
+  // color: #147dec;
+}
+
+/* Custom styles for the sticky navbar */
+.navbar {
+  position: sticky; /* Ensures the navbar remains sticky */
+  top: 0; /* Positions the navbar at the top of the viewport */
+  z-index: 1020; /* Ensures the navbar appears above other elements */
+
+  /* Optional: Add a shadow for a floating effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  /* Optional: Adjust background color for better visibility */
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Adds a blur effect to the background */
+
+  /* Optional: Transition for smooth appearance */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Change background color when scrolling down */
+body.scrolled .navbar {
+  background-color: rgba(255, 255, 255, 1); /* Solid white when scrolled */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+}
+
+/* Adjust links style */
+.navbar-nav .nav-link {
+  // color: #333; /* Default color for links */
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #007bff; /* Highlight active or hovered link */
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
