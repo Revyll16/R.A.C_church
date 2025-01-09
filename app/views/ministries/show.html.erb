@@ -6,5 +6,5 @@
 <p><strong>Created At:</strong> <%= @ministry.created_at.strftime('%B %d, %Y') %></p>
 
 <%= link_to 'Back to Ministries', ministries_path, class: 'btn btn-secondary' %>
-<%= link_to 'Edit Ministry', ministry_path(@ministry), class: 'btn btn-warning' %>
+<%= link_to 'Edit', edit_ministry_path, class: 'btn btn-warning' %>
 <%= link_to 'Delete Ministry', ministry_path(@ministry), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>

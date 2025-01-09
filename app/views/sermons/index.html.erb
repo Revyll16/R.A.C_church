@@ -1,10 +1,27 @@
-<h1>Sermons#index</h1>
-<p>Find me in app/views/sermons/index.html.erb</p>
+<h1>Sermons</h1>
+<%= link_to 'New Sermon', new_sermon_path, class: 'btn btn-primary' %>
 
-<% @sermons.each do |sermon| %>
-  <div>
-    <h2><%= sermon.title %></h2>
-    <p><%= sermon.date %></p>
-    <a href="<%= sermon.video_url %>">Watch Now</a>
-  </div>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Video URL</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sermons.each do |sermon| %>
+      <tr>
+        <td><%= sermon.title %></td>
+        <td><%= sermon.date.strftime("%B %d, %Y") %></td>
+        <td><%= link_to 'Watch', sermon.video_url, target: "_blank" %></td>
+        <td>
+          <%= link_to 'Show', sermon_path(sermon), class: 'btn btn-info btn-sm' %>
+          <%= link_to 'Edit', edit_sermon_path(sermon), class: 'btn btn-warning btn-sm' %>
+          <%= link_to 'Destroy', sermon_path(sermon), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

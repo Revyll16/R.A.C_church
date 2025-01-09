@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :members
   resources :ministries
   resources :sermons
-  resources :events
-  resources :prayer_requests, only: [:new, :create]
+  resources :events, except: [:show]
+  resources :prayer_requests, only: [:index, :new, :create, :destroy]
   resources :donations, only: [:index, :new, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

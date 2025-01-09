@@ -1,2 +1,36 @@
-<h1>Donations#new</h1>
-<p>Find me in app/views/donations/new.html.erb</p>
+<h1>New Donation</h1>
+
+<%= form_with(model: @donation, local: true) do |form| %>
+  <% if @donation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
+      <ul>
+        <% @donation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.number_field :amount, step: 0.01 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :frequency %>
+    <%= form.select :frequency, ["One-time", "Monthly", "Yearly"] %>
+  </div>
+
+  <div class="field">
+  <%= form.label :message %>
+  <%= form.text_area :message, rows: 4 %>
+</div>
+
+
+  <div class="actions">
+    <%= form.submit 'Send your Donation', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', donations_path, class: 'btn btn-secondary' %>

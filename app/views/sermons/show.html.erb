@@ -1,10 +1,5 @@
-<h1>Sermons#show</h1>
-<p>Find me in app/views/sermons/show.html.erb</p>
-
-<% @sermons.each do |sermon| %>
-  <div>
-    <h2><%= sermon.title %></h2>
-    <p><%= sermon.date %></p>
-    <a href="<%= sermon.video_url %>">Watch Now</a>
-  </div>
-<% end %>
+<h1><%= @sermon.title %></h1>
+<p><strong>Date:</strong> <%= @sermon.date.strftime("%B %d, %Y") %></p>
+<p><strong>Video URL:</strong> <%= link_to 'Watch', @sermon.video_url, target: "_blank" %></p>
+<%= link_to 'Edit', edit_sermon_path(@sermon), class: 'btn btn-warning' %> |
+<%= link_to 'Back', sermons_path, class: 'btn btn-secondary' %>

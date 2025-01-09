@@ -1,2 +1,41 @@
-<h1>PrayerRequests#new</h1>
-<p>Find me in app/views/prayer_requests/new.html.erb</p>
+<h1>New Prayer Request</h1>
+
+<%= form_with(model: @prayer_request, local: true) do |form| %>
+  <% if @prayer_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@prayer_request.errors.count, "error") %> prohibited this prayer_request from being saved:</h2>
+      <ul>
+        <% @prayer_request.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+<div class="field">
+  <%= form.label :email, "Email/Phone number" %>
+  <%= form.email_field :email %>
+</div>
+
+
+  <div class="field">
+    <%= form.label :message %>
+    <%= form.text_area :message %>
+  </div>
+
+  <div class="field">
+    <%= form.label :anonymous %>
+    <%= form.check_box :anonymous %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Create Prayer Request', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', prayer_requests_path, class: 'btn btn-secondary' %>

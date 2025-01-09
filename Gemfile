@@ -43,6 +43,8 @@ gem 'sassc-rails'
 gem 'importmap-rails'
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form"
+gem 'faker', '~> 3.2'
+
 
 
 group :development, :test do

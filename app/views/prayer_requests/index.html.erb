@@ -1,0 +1,28 @@
+<h1>Prayer Requests</h1>
+
+<%= link_to 'New Prayer Request', new_prayer_request_path, class: 'btn btn-primary' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email/Phone number</th>
+      <th>Message</th>
+      <th>Anonymous</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @prayer_requests.each do |prayer_request| %>
+      <tr>
+        <td><%= prayer_request.name %></td>
+        <td><%= prayer_request.email %></td>
+        <td><%= prayer_request.message %></td>
+        <td><%= prayer_request.anonymous ? 'Yes' : 'No' %></td>
+        <td>
+          <%= link_to 'Delete', prayer_request, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

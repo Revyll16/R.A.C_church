@@ -1,4 +1,5 @@
 class SermonsController < ApplicationController
+
   def index
     @sermons = Sermon.all
   end

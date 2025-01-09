@@ -10,20 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_08_163118) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_09_123853) do
   create_table "donations", force: :cascade do |t|
     t.decimal "amount"
     t.string "frequency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "message"
   end
 
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
+    t.datetime "start_date"
+    t.datetime "end_date"
   end
 
   create_table "members", force: :cascade do |t|
